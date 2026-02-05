@@ -59,7 +59,7 @@
         <div class="container mx-auto px-4 py-3 flex justify-between items-center">
             <a href="javascript:void(0)" onclick="showPage('home')" class="flex items-center space-x-3 group">
                 <div class="w-10 h-10 flex items-center justify-center text-blue-900 text-2xl">
-                    <img src="https://upload.wikimedia.org/wikipedia/zh/2/2e/National_Chin-Yi_University_of_Technology_logo.svg" alt="NCUT Logo" class="w-full h-full object-contain">
+                    <img src="logo.png" alt="NCUT Logo" class="w-full h-full object-contain">
                 </div>
                 <div class="flex flex-col">
                     <span class="text-lg font-extrabold text-gray-800 group-hover:text-blue-900 transition">國立勤益科技大學</span>
@@ -74,7 +74,6 @@
                 <button onclick="showPage('summary')" class="nav-btn px-3 py-2 rounded-lg hover:bg-blue-50 hover:text-blue-900 transition">計畫簡介</button>
                 <button onclick="showPage('structure')" class="nav-btn px-3 py-2 rounded-lg hover:bg-blue-50 hover:text-blue-900 transition">計畫組成</button>
                 <button onclick="showPage('videos')" class="nav-btn px-3 py-2 rounded-lg hover:bg-blue-50 hover:text-blue-900 transition">教學影片</button>
-                <button onclick="showPage('highlights')" class="nav-btn px-3 py-2 rounded-lg hover:bg-blue-50 hover:text-blue-900 transition">課程地圖</button>
                 <button onclick="showPage('labs')" class="nav-btn px-3 py-2 rounded-lg hover:bg-blue-50 hover:text-blue-900 transition">特色實驗室</button>
                 <button onclick="showPage('performance')" class="nav-btn px-3 py-2 rounded-lg hover:bg-blue-50 hover:text-blue-900 transition">執行績效</button>
                 <button onclick="showPage('activities')" class="nav-btn px-3 py-2 rounded-lg hover:bg-blue-50 hover:text-blue-900 transition">活動競賽</button>
@@ -93,7 +92,6 @@
                 <button onclick="showPage('summary')" class="text-left py-3 px-4 hover:bg-blue-50 rounded-xl">計畫簡介</button>
                 <button onclick="showPage('structure')" class="text-left py-3 px-4 hover:bg-blue-50 rounded-xl">計畫組成</button>
                 <button onclick="showPage('videos')" class="text-left py-3 px-4 hover:bg-blue-50 rounded-xl">教學影片</button>
-                <button onclick="showPage('highlights')" class="text-left py-3 px-4 hover:bg-blue-50 rounded-xl">課程地圖</button>
                 <button onclick="showPage('labs')" class="text-left py-3 px-4 hover:bg-blue-50 rounded-xl">特色實驗室</button>
                 <button onclick="showPage('performance')" class="text-left py-3 px-4 hover:bg-blue-50 rounded-xl">執行績效</button>
                 <button onclick="showPage('activities')" class="text-left py-3 px-4 hover:bg-blue-50 rounded-xl">活動競賽</button>
@@ -135,9 +133,37 @@
                 </div>
             </section>
 
+
+
             <!-- Core Field Section (Experimental Field) -->
             <section class="py-24 bg-white">
                 <div class="container mx-auto px-4">
+                    <div class="container mx-auto px-4 py-20 max-w-7xl">
+                <div class="flex flex-col lg:flex-row gap-20 items-start">
+                    <div class="lg:w-1/2 flex flex-col items-center">
+                        <h2 class="text-3xl font-extrabold text-gray-800 mb-12 flex items-center gap-3"><i class="fa-solid fa-shapes text-blue-600"></i>課程培育金字塔</h2>
+                        <svg viewBox="0 0 500 440" class="w-full max-w-lg drop-shadow-2xl">
+                            <defs>
+                                <linearGradient id="gT" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" style="stop-color:#f59e0b"/><stop offset="100%" style="stop-color:#d97706"/></linearGradient>
+                                <linearGradient id="gM" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" style="stop-color:#3b82f6"/><stop offset="100%" style="stop-color:#2563eb"/></linearGradient>
+                                <linearGradient id="gB" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" style="stop-color:#10b981"/><stop offset="100%" style="stop-color:#059669"/></linearGradient>
+                            </defs>
+                            <g onclick="updatePyramid(3)"><path id="l3" d="M250,10 L336,160 L164,160 Z" fill="url(#gT)" class="pyramid-layer"/></g>
+                            <g onclick="updatePyramid(2)"><path id="l2" d="M164,165 L336,165 L423,315 L77,315 Z" fill="url(#gM)" class="pyramid-layer active"/></g>
+                            <g onclick="updatePyramid(1)"><path id="l1" d="M77,320 L423,320 L500,453 L0,453 Z" fill="url(#gB)" class="pyramid-layer"/></g>
+                            <text x="250" y="110" class="pyramid-text">PBL 總整課程</text>
+                            <text x="250" y="255" class="pyramid-text">特色領域模組</text>
+                            <text x="250" y="400" class="pyramid-text">基礎核心課程</text>
+                        </svg>
+                        <p class="mt-12 text-gray-400 font-bold italic">點擊金字塔各層級查看詳細規劃</p>
+                    </div>
+                    <div class="lg:w-1/2">
+                        <div id="pyr-panel" class="bg-white rounded-[3rem] shadow-xl border border-gray-100 overflow-hidden min-h-[550px] relative">
+                            <!-- Injected by JS -->
+                        </div>
+                    </div>
+                </div>
+            </div>
                     <div class="text-center mb-16">
                         <h2 class="text-4xl font-extrabold text-gray-800 mb-4 tracking-wider">核心教學場域</h2>
                         <div class="w-24 h-1.5 bg-blue-600 mx-auto rounded-full"></div>
@@ -168,6 +194,7 @@
                                     <h3 class="text-white text-xl font-bold">智慧聯網數據戰情室</h3>
                                 </div>
                             </div>
+                            
                             <p class="text-gray-500 text-sm leading-relaxed px-4 text-center">建置 CPS 監控系統，實現加工狀態可視化管理。</p>
                         </div>
                     </div>
@@ -190,7 +217,7 @@
                 <!-- NCUT Info -->
                 <div class="flex flex-col md:flex-row items-center gap-16 mb-32">
                     <div class="md:w-1/2 relative">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/National_Chin-Yi_University_of_Technology_Library.jpg/1024px-National_Chin-Yi_University_of_Technology_Library.jpg" class="rounded-[2.5rem] shadow-2xl w-full h-[450px] object-cover border-8 border-white gallery-img" alt="NCUT Campus">
+                        <img src="ncut.png" class="rounded-[2.5rem] shadow-2xl w-full h-[450px] object-cover border-8 border-white gallery-img" alt="NCUT Campus">
                         <div class="absolute -bottom-6 -right-6 bg-blue-600 text-white p-6 rounded-3xl shadow-xl">
                             <p class="text-2xl font-extrabold italic">典範科大</p>
                             <p class="text-[10px] tracking-widest uppercase font-bold">Leading Tech University</p>
@@ -395,17 +422,79 @@
             <div class="container mx-auto px-4 py-16 max-w-7xl">
                 <!-- Featured Video Section -->
                 <div class="mb-16">
-                    <div class="bg-black rounded-3xl overflow-hidden shadow-2xl aspect-video relative group">
-                        <div class="absolute inset-0 flex items-center justify-center bg-gray-900">
-                             <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1920" class="absolute inset-0 w-full h-full object-cover opacity-50" alt="Main Video Cover">
-                             <button class="z-10 w-24 h-24 bg-red-600 text-white rounded-full flex items-center justify-center text-3xl hover:scale-110 transition shadow-2xl"><i class="fa-solid fa-play ml-1"></i></button>
-                             <div class="absolute bottom-0 left-0 w-full p-8 bg-gradient-to-t from-black/90 to-transparent text-left">
-                                <span class="inline-block px-3 py-1 bg-yellow-500 text-black text-xs font-bold rounded mb-2 uppercase">精選教學</span>
-                                <h2 class="text-white text-3xl font-extrabold mb-2">五軸加工機操作示範：開機與座標設定</h2>
-                                <p class="text-gray-300">本教學由業師指導，詳細介紹多軸機台的操作規範與虛實整合路徑驗證流程。</p>
-                             </div>
-                        </div>
-                    </div>
+           <div id="videoCard" class="bg-black rounded-3xl overflow-hidden shadow-2xl aspect-video relative">
+  <!-- 封面圖 -->
+<!-- 影片卡片 -->
+<div class="bg-black rounded-3xl overflow-hidden shadow-2xl aspect-video relative">
+  <div id="videoCard" class="absolute inset-0">
+
+    <!-- 封面圖 -->
+    <img
+      src="https://img.youtube.com/vi/w8KK-a4t1m4/maxresdefault.jpg"
+      class="absolute inset-0 w-full h-full object-cover opacity-60"
+      alt="Main Video Cover"
+    />
+
+    <!-- 播放鍵 -->
+    <button
+      id="playVideo"
+      type="button"
+      class="absolute inset-0 m-auto w-24 h-24 bg-red-600 text-white rounded-full flex items-center justify-center text-3xl hover:scale-110 transition shadow-2xl z-10"
+      aria-label="Play video"
+    >
+      <i class="fa-solid fa-play ml-1"></i>
+    </button>
+
+    <!-- 文字 -->
+    <div class="absolute bottom-0 left-0 w-full p-8 bg-gradient-to-t from-black/90 to-transparent text-left z-10">
+      <span class="inline-block px-3 py-1 bg-yellow-500 text-black text-xs font-bold rounded mb-2 uppercase">
+        精選教學
+      </span>
+      <h2 class="text-white text-3xl font-extrabold mb-2">
+        五軸加工機操作示範：開機與座標設定
+      </h2>
+      <p class="text-gray-300">
+        本教學由業師指導，詳細介紹多軸機台的操作規範與虛實整合路徑驗證流程。
+      </p>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  document.getElementById("playVideo").addEventListener("click", function () {
+    document.getElementById("videoCard").innerHTML = `
+      <iframe
+        class="w-full h-full"
+        src="https://www.youtube.com/embed/w8KK-a4t1m4?autoplay=1&rel=0"
+        title="YouTube video player"
+        frameborder="0"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen>
+      </iframe>
+    `;
+  });
+</script>
+
+</div>
+
+</div>
+
+<script>
+  document.getElementById("playVideo").addEventListener("click", function () {
+    document.getElementById("videoCard").innerHTML = `
+      <iframe
+        class="w-full h-full"
+        src="https://www.youtube.com/embed/w8KK-a4t1m4?autoplay=1&rel=0"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+    `;
+  });
+</script>
+
                 </div>
 
                 <!-- Video Grid -->
@@ -513,26 +602,7 @@
                     </div>
                 </div>
 
-                <!-- Field 3 -->
-                <div class="flex flex-col lg:flex-row gap-16 items-center">
-                    <div class="lg:w-1/2">
-                        <div class="bg-gray-200 rounded-[3rem] shadow-2xl h-80 flex flex-col items-center justify-center relative overflow-hidden group">
-                            <span class="text-gray-400 font-bold italic z-10">[場域照片/介紹影片 準備中]</span>
-                            <div class="absolute inset-0 bg-cyan-900/10 group-hover:bg-transparent transition duration-500"></div>
-                        </div>
-                    </div>
-                    <div class="lg:w-1/2 text-left">
-                        <span class="inline-block px-4 py-1 bg-cyan-100 text-cyan-700 text-xs font-bold rounded-full mb-4 uppercase tracking-widest">跨系共用場域</span>
-                        <h2 class="text-4xl font-extrabold mb-8 flex items-center gap-4 text-gray-800"><i data-lucide="layout" class="text-cyan-600"></i>智慧聯網數據戰情室</h2>
-                        <p class="text-gray-600 leading-relaxed text-lg mb-8 italic">
-                            建立虛實整合 (CPS) 監控教學中心，實現產線透明化管理。
-                        </p>
-                        <ul class="space-y-3 font-bold text-gray-700">
-                            <li class="flex items-center gap-3"><i class="fa-solid fa-chart-line text-cyan-500"></i> 加工即時看板與能耗盤點系統</li>
-                            <li class="flex items-center gap-3"><i class="fa-solid fa-network-wired text-cyan-500"></i> 工業 4.0 邊緣運算網路佈建</li>
-                        </ul>
-                    </div>
-                </div>
+               
             </div>
         </div>
 
@@ -660,19 +730,68 @@
             <div class="container mx-auto px-4 py-20 max-w-6xl">
                 <div class="bg-white p-12 rounded-[2.5rem] shadow-xl border border-yellow-100 text-center mb-16">
                     <h2 class="text-4xl font-extrabold text-gray-800 mb-12 tracking-wider">🥇 學生競賽榮譽榜</h2>
+                    
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-                        <div class="group"><img src="https://placehold.co/600x400/f59e0b/fff?text=Winner+Huang" class="rounded-3xl shadow-xl mb-6 group-hover:scale-105 transition duration-500" alt="Gold Winner"><h4 class="text-2xl font-bold">黃信訓 同學</h4><p class="text-blue-600 font-bold">第54屆全國技能競賽 工業機械職類金牌</p></div>
-                        <div class="group"><img src="https://placehold.co/600x400/3b82f6/fff?text=National+Wu" class="rounded-3xl shadow-xl mb-6 group-hover:scale-105 transition duration-500" alt="National Player"><h4 class="text-2xl font-bold">吳德龍 同學</h4><p class="text-blue-600 font-bold">第48屆國際技能競賽 CNC車床國手</p></div>
-                    </div>
+    <!-- 卡片 1 -->
+    <div class="group">
+        <div class="w-full h-[320px] overflow-hidden rounded-3xl shadow-xl mb-6">
+            <img 
+                src="huang.jpg"
+                class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+                alt="Gold Winner"
+            >
+        </div>
+        <h4 class="text-2xl font-bold">黃信訓 同學</h4>
+        <p class="text-blue-600 font-bold">
+            第54屆全國技能競賽 工業機械職類金牌
+        </p>
+    </div>
+
+    <!-- 卡片 2 -->
+    <div class="group">
+        <div class="w-full h-[320px] overflow-hidden rounded-3xl shadow-xl mb-6">
+            <img 
+                src="wu.png"
+                class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+                alt="National Player"
+            >
+        </div>
+        <h4 class="text-2xl font-bold">吳德龍 同學</h4>
+        <p class="text-blue-600 font-bold">
+            第48屆國際技能競賽 CNC車床國手
+        </p>
+    </div>
+</div>
+
+
                 </div>
-                <!-- Gallery Item Example -->
-                <div class="bg-white p-10 rounded-[2.5rem] shadow-sm border border-gray-100 flex flex-col md:flex-row gap-12 items-center text-left">
-                    <div class="md:w-2/5 overflow-hidden rounded-3xl h-64"><img src="https://placehold.co/800x600/e2e8f0/1e3a8a?text=Scholarship+Ceremony" class="w-full h-full object-cover gallery-img" alt="Activity"></div>
-                    <div class="md:w-3/5">
-                        <span class="text-sm font-extrabold text-blue-600 mb-2 block uppercase tracking-widest">2025.12.31</span>
-                        <h3 class="text-2xl font-extrabold text-gray-800 mb-4">盈錫精密獎學金頒獎典禮</h3>
-                        <p class="text-gray-600 leading-relaxed font-medium">肯定學生在專業學習與實務能力上的卓越表現，強化企業、學校與學生之緊密互動，提升產學合作之深度與穩定性。</p>
-                    </div>
+                <div class="flex flex-col md:flex-row gap-10 items-start">
+  <!-- 左：圖片（固定同尺寸） -->
+  <div class="md:w-2/5">
+    <div class="w-full h-[320px] overflow-hidden rounded-3xl shadow-xl">
+      <img
+        src="award.jpg"
+        alt="盈錫精密獎學金頒獎典禮"
+        class="w-full h-full object-cover transition duration-500 hover:scale-105"
+      />
+    </div>
+  </div>
+
+  <!-- 右：文字 -->
+  <div class="md:w-3/5">
+    <span class="text-sm font-extrabold text-blue-600 mb-2 block uppercase tracking-widest">
+      2025.12.31
+    </span>
+    <h3 class="text-2xl font-extrabold text-gray-800 mb-4">
+      盈錫精密獎學金頒獎典禮
+    </h3>
+    <p class="text-gray-600 leading-relaxed font-medium">
+      肯定學生在專業學習與實務能力上的卓越表現，強化企業、學校與學生之緊密互動，提升產學合作之深度與穩定性。
+    </p>
+  </div>
+</div>
+
+
                 </div>
             </div>
         </div>
@@ -686,7 +805,7 @@
                 <!-- Profile & Contact -->
                 <div class="md:w-1/3 space-y-8">
                     <div class="flex items-center space-x-3">
-                        <div class="w-12 h-12 bg-white rounded-full p-2"><img src="https://upload.wikimedia.org/wikipedia/zh/2/2e/National_Chin-Yi_University_of_Technology_logo.svg" alt="Footer Logo"></div>
+                        <div class="w-12 h-12 bg-white rounded-full p-2"><img src="logo.png" alt="Footer Logo"></div>
                         <span class="text-2xl font-extrabold text-white tracking-wide uppercase">國立勤益科技大學</span>
                     </div>
                     <div class="space-y-4 font-bold text-gray-500 text-sm">
